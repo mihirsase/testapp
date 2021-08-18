@@ -16,6 +16,15 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  # Save local variables
+  shared_preferences: 2.0.6
+  
+  # Blocs
+  flutter_bloc: 7.0.0
+
+  # Display SVG assets
+  flutter_svg: ^0.22.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -23,3 +32,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - lib/assets/
