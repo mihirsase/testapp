@@ -56,7 +56,11 @@ class _TestAppState extends State<TestApp> {
                 BotToastNavigatorObserver(),
               ],
               builder: (context, widget) {
-                return BotToastInit()(context, widget);
+                return MediaQuery(
+                    data: MediaQuery.of(context).copyWith(
+                      textScaleFactor: 1.0,
+                    ),
+                    child: BotToastInit()(context, widget));
               },
               home: InitialScreen(
                 navigatorKey: _navigatorKey,
