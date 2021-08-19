@@ -41,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Icons.add,
               size: 32,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Wayfinder.instance.createPost();
+            },
             backgroundColor: Pallete.green,
           ),
         );

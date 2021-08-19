@@ -3,6 +3,7 @@ import 'package:testapp/models/post/post.dart';
 import 'package:testapp/screens/auth/login_screen.dart';
 import 'package:testapp/screens/dashboard/dashboard_screen.dart';
 import 'package:testapp/screens/dashboard/home/comments/comments_screen.dart';
+import 'package:testapp/screens/dashboard/home/create_post/create_post_screen.dart';
 
 class Wayfinder {
   static final Wayfinder instance = Wayfinder._();
@@ -94,6 +95,17 @@ class Wayfinder {
           return CommentsScreen(post: post);
         },
         settings: RouteSettings(name: (CommentsScreen).toString()),
+      ),
+    );
+  }
+
+  void createPost() {
+    _push(
+      materialPageRoute: MaterialPageRoute(
+        builder: (final BuildContext _) {
+          return CreatePostScreen();
+        },
+        settings: RouteSettings(name: (CreatePostScreen).toString()),
       ),
     );
   }
