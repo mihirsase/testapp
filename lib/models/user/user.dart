@@ -38,7 +38,7 @@ class User {
         website: json['website'],
         company: json['company']?['name'],
         address: Address.fromMap(
-          json['address'] ??{},
+          json['address'] ?? {},
         ),
       );
 

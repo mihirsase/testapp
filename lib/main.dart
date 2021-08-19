@@ -46,11 +46,12 @@ class _TestAppState extends State<TestApp> {
               title: 'Test App',
               themeMode: ThemeMode.dark,
               theme: ThemeData(
-                  canvasColor: Pallete.black,
-                  appBarTheme: AppBarTheme(
-                    color: Pallete.black,
-                    centerTitle: true,
-                  )),
+                canvasColor: Pallete.black,
+                appBarTheme: AppBarTheme(
+                  color: Pallete.black,
+                  centerTitle: true,
+                ),
+              ),
               debugShowCheckedModeBanner: false,
               navigatorObservers: [
                 BotToastNavigatorObserver(),
