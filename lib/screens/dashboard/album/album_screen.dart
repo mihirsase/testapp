@@ -9,6 +9,7 @@ import 'package:testapp/components/atoms/refresh_atom.dart';
 import 'package:testapp/components/atoms/title_atom.dart';
 import 'package:testapp/models/album/album.dart';
 import 'package:testapp/services/pallete.dart';
+import 'package:testapp/services/wayfinder.dart';
 
 class AlbumScreen extends StatefulWidget {
   const AlbumScreen({Key? key}) : super(key: key);
@@ -75,8 +76,8 @@ class _AlbumScreenState extends State<AlbumScreen> {
       child: Card(
         color: Pallete.secondaryBackground,
         child: ListTile(
-          onTap: (){
-
+          onTap: () {
+            Wayfinder.instance.photos(album: album);
           },
           contentPadding: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
           title: Text(
