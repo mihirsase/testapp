@@ -25,6 +25,15 @@ dependencies:
   # Display SVG assets
   flutter_svg: ^0.22.0
 
+  # Persist data
+  sqflite: ^2.0.0+3
+
+  # DB path
+  path: ^1.8.0
+
+  # In app notifications
+  bot_toast: ^4.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

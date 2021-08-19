@@ -11,20 +11,28 @@ class Storage {
     _sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  String? _getString({
-    required final String key,
-  }) {
-    return _sharedPreferences.getString(key);
+  int? get userID {
+    return _getInt(key: 'userId');
   }
 
-  void _setString({
+  set userID(final int? userId) {
+    return _setInt(key: 'userId', value: userId);
+  }
+
+  int? _getInt({
     required final String key,
-    required final String? value,
+  }) {
+    return _sharedPreferences.getInt(key);
+  }
+
+  void _setInt({
+    required final String key,
+    required final int? value,
   }) {
     if (value == null) {
       _sharedPreferences.remove(key);
     } else {
-      _sharedPreferences.setString(key, value);
+      _sharedPreferences.setInt(key, value);
     }
   }
 }

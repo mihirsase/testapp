@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:testapp/components/atoms/loading_atom.dart';
 import 'package:testapp/screens/initial_screen.dart';
@@ -51,6 +52,12 @@ class _TestAppState extends State<TestApp> {
                     centerTitle: true,
                   )),
               debugShowCheckedModeBanner: false,
+              navigatorObservers: [
+                BotToastNavigatorObserver(),
+              ],
+              builder: (context, widget) {
+                return BotToastInit()(context, widget);
+              },
               home: InitialScreen(
                 navigatorKey: _navigatorKey,
               ),
