@@ -15,8 +15,8 @@ class MarginAtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: _padding(context),
-        right: _padding(context),
+        left: padding(context),
+        right: padding(context),
         top: top,
         bottom: bottom,
       ),
@@ -24,7 +24,7 @@ class MarginAtom extends StatelessWidget {
     );
   }
 
-  double _padding(BuildContext context) {
+  static double padding(BuildContext context) {
     return MediaQuery.of(context).size.width * 0.055;
   }
 }

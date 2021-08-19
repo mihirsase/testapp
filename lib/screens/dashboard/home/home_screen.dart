@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testapp/blocs/dashboard/home/home_bloc.dart';
 import 'package:testapp/blocs/dashboard/home/home_event.dart';
 import 'package:testapp/blocs/dashboard/home/home_state.dart';
-import 'package:testapp/components/atoms/form_atom.dart';
 import 'package:testapp/components/atoms/loading_atom.dart';
+import 'package:testapp/components/atoms/margin_atom.dart';
 import 'package:testapp/components/atoms/refresh_atom.dart';
 import 'package:testapp/components/atoms/title_atom.dart';
+import 'package:testapp/models/post/post.dart';
+import 'package:testapp/services/pallete.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -33,6 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ) {
         return Scaffold(
           body: _body(state),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(
+              Icons.add,
+              size: 32,
+            ),
+            onPressed: () {},
+            backgroundColor: Pallete.green,
+          ),
         );
       },
     );
@@ -51,15 +61,62 @@ class _HomeScreenState extends State<HomeScreen> {
       onRefresh: () async {
         _homeBloc.add(LoadHome());
       },
-      child: FormAtom(
-        isAlwaysScrollable: true,
+      child: ListView(
         children: [
           TitleAtom(
             title: 'Posts',
             subtitle:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere ex placerat vulputate condimentum.',
           ),
+          ..._homeBloc.postList.map((final Post post) => _postTile(post)).toList(),
         ],
+      ),
+    );
+  }
+
+  Widget _postTile(final Post post) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 12),
+      child: ListTile(
+        contentPadding: EdgeInsets.symmetric(horizontal: MarginAtom.padding(context)),
+        title: Text(
+          post.title ?? '',
+          style: TextStyle(
+            color: Pallete.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
+        subtitle: Column(
+          children: [
+            SizedBox(
+              height: 2,
+            ),
+            Text(
+              post.body?.replaceAll('\n', '') ?? '',
+              style: TextStyle(color: Pallete.greyLight),
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: GestureDetector(
+                onTap: (){
+
+                },
+                child: Text(
+                  'view comments',
+                  style: TextStyle(
+                    color: Pallete.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
