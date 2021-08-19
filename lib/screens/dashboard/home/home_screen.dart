@@ -9,6 +9,7 @@ import 'package:testapp/components/atoms/refresh_atom.dart';
 import 'package:testapp/components/atoms/title_atom.dart';
 import 'package:testapp/models/post/post.dart';
 import 'package:testapp/services/pallete.dart';
+import 'package:testapp/services/wayfinder.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -102,8 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Align(
               alignment: Alignment.centerLeft,
               child: GestureDetector(
-                onTap: (){
-
+                onTap: () {
+                  Wayfinder.instance.comments(post: post);
                 },
                 child: Text(
                   'view comments',
