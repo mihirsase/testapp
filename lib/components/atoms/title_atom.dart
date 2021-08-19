@@ -4,11 +4,13 @@ import 'package:testapp/services/pallete.dart';
 
 class TitleAtom extends StatelessWidget {
   final String title;
-  final String subtitle;
+  final String? subtitle;
+  final Widget? leading;
 
   const TitleAtom({
     required this.title,
-    required this.subtitle,
+    this.subtitle,
+    this.leading,
   });
 
   @override
@@ -23,25 +25,36 @@ class TitleAtom extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: Pallete.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Row(
+                children: [
+                  if(leading !=null)
+                    leading!,
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: Pallete.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-            SizedBox(
-              height: 12,
-            ),
-            Text(
-              subtitle,
-              style: TextStyle(
-                color: Pallete.secondaryText,
-                fontSize: 16,
+            if (subtitle != null)
+              Column(
+                children: [
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    subtitle!,
+                    style: TextStyle(
+                      color: Pallete.secondaryText,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
               ),
-            ),
           ],
         ),
       ),

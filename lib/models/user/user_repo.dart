@@ -1,7 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:testapp/models/user/user.dart';
+import 'package:testapp/services/api_requester.dart';
 import 'package:testapp/services/db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:testapp/services/notifier.dart';
+import 'package:testapp/services/storage.dart';
 
 class UserRepo {
   static final UserRepo instance = UserRepo._();
@@ -41,7 +44,7 @@ class UserRepo {
         return null;
       }
       final User _user = User.fromMap(row[0]);
-      if (_user.username.toLowerCase() == password.toLowerCase()) {
+      if (_user.username!.toLowerCase() == password.toLowerCase()) {
         return _user;
       }
       Notifier.instance.alert(
@@ -56,6 +59,17 @@ class UserRepo {
         title: 'Something went wrong',
         notifType: NotifType.negative,
       );
+      return null;
+    }
+  }
+
+  Future<User?> getUserDetails() async {
+    try {
+      Response response = await APIRequester.instance.dio
+          .get('https://jsonplaceholder.typicode.com/users/${Storage.instance.userID}');
+      return User.fromMap(response.data);
+    } catch (e) {
+      print(e);
       return null;
     }
   }
