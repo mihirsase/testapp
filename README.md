@@ -5,8 +5,8 @@ This is a flutter application for a demonstrating bloc pattern architecture.
 [Android apk download link](https://drive.google.com/file/d/1fHhHa5B7-MNjAz-57AWfGLlG8sGFEHyP/view?usp=sharing)
 
 ## Login Credentials
-- **.email** : Sincere@april.biz 
-- **.password** : Bret 
+- **Email** : Sincere@april.biz 
+- **Password** : Bret 
 
    
 ## Project Structure  
