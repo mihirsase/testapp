@@ -1,16 +1,33 @@
-# testapp
+# TestApp  
+  
+This is a flutter application for a demonstrating bloc pattern architecture.  
+## APK Link 
+[Android apk download link](https://drive.google.com/file/d/1fHhHa5B7-MNjAz-57AWfGLlG8sGFEHyP/view?usp=sharing)
 
-A new Flutter project.
+## Login Credentials
+- **.email** : Sincere@april.biz 
+- **.password** : Bret 
 
-## Getting Started
+   
+## Project Structure  
+  
+- **.screens** : All the main screens for the app goes into this package  
+- **.blocs** : All business logic is inside these files 
+- **.components** : All reusable widgets are stored in this package  
+  - **.atoms** : Atoms are completely stateless reusable components.  
+  - **.molecules** : Molecules are stateful reusable components.  
+  - **.organisms** : Organisms have their own state,bloc and probably won't be used again.  
+- **.models** : All the blueprint files for the app goes into this package  
+- **.services** : All classes which provides additional help goes in this package  
+- **.assets** : All external images and fonts are stored here  
+  
+## Third party packages used in the project  
+  
+- **shared_preferences** : Used for storing the login status of the user  
+- **flutter_bloc** : Used for separating business logic from ui code
+- **flutter_svg** : Used to display svg assets
+- **sqflite** : Used to persist some user data
+- **path** : Used to get the local database path
+- **bot_toast** : Used to display in-app notifications
+- **dio** : Used for making REST API requests
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
