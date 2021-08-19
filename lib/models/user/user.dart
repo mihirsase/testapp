@@ -36,9 +36,9 @@ class User {
         email: json["email"],
         phone: json['phone'],
         website: json['website'],
-        company: json['company']['name'],
+        company: json['company']?['name'],
         address: Address.fromMap(
-          json['address'],
+          json['address'] ??{},
         ),
       );
 
