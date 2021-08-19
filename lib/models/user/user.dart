@@ -44,5 +44,4 @@ List<User> dummyUsers = [
   User(id: 8, name: "Nicholas Runolfsdottir V", username: "Maxime_Nienow", email: "Sherwood@rosamond.me"),
   User(id: 9, name: "Glenna Reichert", username: "Delphine", email: "Chaim_McDermott@dana.io"),
   User(id: 10, name: "Clementina DuBuque", username: "Moriah.Stanton", email: "Rey.Padberg@karina.biz"),
-  User(id: 11, name: "Mihir Sase", username: "mihirsase", email: "mihir@rirev.com"),
 ];

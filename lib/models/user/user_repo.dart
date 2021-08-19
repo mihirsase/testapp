@@ -31,7 +31,8 @@ class UserRepo {
   Future<User?> authenticateUser({required String email, required String password}) async {
     try {
       final db = await DB.instance.database;
-      final row = (await db.query('users', where: 'email = ?', whereArgs: [email]));
+      //final row = (await db.query('users', where: 'email = ?', whereArgs: [email]));
+      final row = (await db.rawQuery("SELECT * FROM users WHERE email = '$email' COLLATE NOCASE"));
       if (row.length == 0) {
         Notifier.instance.alert(
           title: 'Email does not exist in our database',
