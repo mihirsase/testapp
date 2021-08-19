@@ -91,9 +91,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: BlocBuilder<DashboardBloc, DashboardState>(
         builder: (final BuildContext _, DashboardState state) {
           return SafeArea(
-            top: false,
             child: Scaffold(
-              appBar: _appBar(state, context) as PreferredSizeWidget?,
               body: _body(state),
               bottomNavigationBar: _bottomNavigationBar(state),
             ),
@@ -103,29 +101,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  Widget? _appBar(final DashboardState state, BuildContext context) {
-    if (state is DashboardLoaded) {
-      return AppBar(
-        brightness: Brightness.dark,
-        backgroundColor: Pallete.black,
-        title: Text(
-          _dashboardTab.title!.toUpperCase(),
-          style: TextStyle(
-            fontSize: 14,
-          ),
-        ),
-        bottom: PreferredSize(
-          child: Container(
-            color: Colors.black,
-            height: 1.0,
-          ),
-          preferredSize: Size.fromHeight(4.0),
-        ),
-      );
-    } else {
-      return null;
-    }
-  }
 
   Widget? _bottomNavigationBar(final DashboardState state) {
     if (state is DashboardLoaded) {

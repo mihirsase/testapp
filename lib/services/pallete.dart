@@ -28,4 +28,13 @@ class Pallete {
   static Color get green {
     return Color(0xFF57B65F);
   }
+
+  static Color get secondaryText {
+    return Color(0xFFF9F9F9);
+  }
+
+  static Color get secondaryBackground {
+    return Color(0xFF191919);
+  }
+
 }
